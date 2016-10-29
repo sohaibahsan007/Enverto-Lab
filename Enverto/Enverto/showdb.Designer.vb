@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form3
+Partial Class showdb
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,23 +23,24 @@ Partial Class Form3
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(showdb))
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DbDataSet1 = New Enverto.DbDataSet1()
-        Me.EnvertoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EnvertoTableAdapter = New Enverto.DbDataSet1TableAdapters.EnvertoTableAdapter()
         Me.SNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProjectDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EnvertoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbDataSet1 = New Enverto.DbDataSet1()
+        Me.EnvertoTableAdapter = New Enverto.DbDataSet1TableAdapters.EnvertoTableAdapter()
         Me.Label2 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EnvertoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -52,17 +53,6 @@ Partial Class Form3
         Me.Label1.Size = New System.Drawing.Size(603, 32)
         Me.Label1.TabIndex = 29
         Me.Label1.Text = "Welcome To Enverto Lab's Data Center"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox1.Image = Global.Enverto.My.Resources.Resources.logo
-        Me.PictureBox1.Location = New System.Drawing.Point(160, 30)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(136, 92)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 30
-        Me.PictureBox1.TabStop = False
         '
         'Button2
         '
@@ -80,6 +70,7 @@ Partial Class Form3
         '
         'DataGridView1
         '
+        Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SNoDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.ProjectDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
@@ -88,20 +79,6 @@ Partial Class Form3
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(642, 265)
         Me.DataGridView1.TabIndex = 33
-        '
-        'DbDataSet1
-        '
-        Me.DbDataSet1.DataSetName = "DbDataSet1"
-        Me.DbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EnvertoBindingSource
-        '
-        Me.EnvertoBindingSource.DataMember = "Enverto"
-        Me.EnvertoBindingSource.DataSource = Me.DbDataSet1
-        '
-        'EnvertoTableAdapter
-        '
-        Me.EnvertoTableAdapter.ClearBeforeFill = True
         '
         'SNoDataGridViewTextBoxColumn
         '
@@ -134,6 +111,20 @@ Partial Class Form3
         Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
         Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
         '
+        'EnvertoBindingSource
+        '
+        Me.EnvertoBindingSource.DataMember = "Enverto"
+        Me.EnvertoBindingSource.DataSource = Me.DbDataSet1
+        '
+        'DbDataSet1
+        '
+        Me.DbDataSet1.DataSetName = "DbDataSet1"
+        Me.DbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EnvertoTableAdapter
+        '
+        Me.EnvertoTableAdapter.ClearBeforeFill = True
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -145,7 +136,18 @@ Partial Class Form3
         Me.Label2.TabIndex = 34
         Me.Label2.Text = "Developed By Sohaib Ahsan"
         '
-        'Form3
+        'PictureBox1
+        '
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.Enverto.My.Resources.Resources.logo
+        Me.PictureBox1.Location = New System.Drawing.Point(160, 30)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(136, 92)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 30
+        Me.PictureBox1.TabStop = False
+        '
+        'showdb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -156,12 +158,13 @@ Partial Class Form3
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Form3"
-        Me.Text = "Form3"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "showdb"
+        Me.Text = "List-Enverto Lab's"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EnvertoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

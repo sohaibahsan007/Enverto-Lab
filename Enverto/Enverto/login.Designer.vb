@@ -147,6 +147,7 @@ Partial Class login
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.ForeColor = System.Drawing.SystemColors.InactiveCaption
         Me.Label6.Location = New System.Drawing.Point(932, 12)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(30, 13)

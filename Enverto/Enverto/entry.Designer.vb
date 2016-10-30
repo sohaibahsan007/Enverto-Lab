@@ -54,7 +54,7 @@ Partial Class entry
         '
         Me.Button2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Button2.Location = New System.Drawing.Point(814, 262)
+        Me.Button2.Location = New System.Drawing.Point(745, 241)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(144, 43)
         Me.Button2.TabIndex = 24
@@ -65,7 +65,7 @@ Partial Class entry
         '
         Me.Button1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Button1.Location = New System.Drawing.Point(814, 166)
+        Me.Button1.Location = New System.Drawing.Point(745, 166)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(144, 42)
         Me.Button1.TabIndex = 23
@@ -85,7 +85,7 @@ Partial Class entry
         Me.TextBox4.Location = New System.Drawing.Point(392, 262)
         Me.TextBox4.Multiline = True
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(285, 86)
+        Me.TextBox4.Size = New System.Drawing.Size(285, 22)
         Me.TextBox4.TabIndex = 21
         '
         'TextBox2
@@ -107,11 +107,11 @@ Partial Class entry
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.InactiveCaption
-        Me.Label5.Location = New System.Drawing.Point(155, 262)
+        Me.Label5.Location = New System.Drawing.Point(215, 262)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(220, 22)
+        Me.Label5.Size = New System.Drawing.Size(160, 22)
         Me.Label5.TabIndex = 18
-        Me.Label5.Text = "Enter Project Detail:"
+        Me.Label5.Text = "Enter Position:"
         '
         'Label4
         '

@@ -32,6 +32,7 @@ Partial Class main
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -42,9 +43,9 @@ Partial Class main
         Me.Label2.ForeColor = System.Drawing.SystemColors.InactiveCaption
         Me.Label2.Location = New System.Drawing.Point(455, 417)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(234, 19)
+        Me.Label2.Size = New System.Drawing.Size(126, 19)
         Me.Label2.TabIndex = 39
-        Me.Label2.Text = "Developed By Sohaib Ahsan"
+        Me.Label2.Text = "Developed By "
         '
         'Button5
         '
@@ -62,6 +63,7 @@ Partial Class main
         '
         'LinkLabel1
         '
+        Me.LinkLabel1.ActiveLinkColor = System.Drawing.SystemColors.InactiveCaption
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel1.ForeColor = System.Drawing.SystemColors.InactiveCaption
@@ -73,6 +75,7 @@ Partial Class main
         Me.LinkLabel1.TabIndex = 37
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Click To Visit Website"
+        Me.LinkLabel1.VisitedLinkColor = System.Drawing.SystemColors.InactiveCaption
         '
         'Button4
         '
@@ -143,12 +146,29 @@ Partial Class main
         Me.PictureBox1.TabIndex = 32
         Me.PictureBox1.TabStop = False
         '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.ActiveLinkColor = System.Drawing.SystemColors.InactiveCaption
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel2.ForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.LinkLabel2.LinkColor = System.Drawing.Color.Gray
+        Me.LinkLabel2.LinkVisited = True
+        Me.LinkLabel2.Location = New System.Drawing.Point(573, 415)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(130, 22)
+        Me.LinkLabel2.TabIndex = 40
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Sohaib Ahsan"
+        Me.LinkLabel2.VisitedLinkColor = System.Drawing.SystemColors.InactiveCaption
+        '
         'main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.ClientSize = New System.Drawing.Size(1065, 446)
+        Me.Controls.Add(Me.LinkLabel2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.LinkLabel1)
@@ -175,4 +195,5 @@ Partial Class main
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
 End Class

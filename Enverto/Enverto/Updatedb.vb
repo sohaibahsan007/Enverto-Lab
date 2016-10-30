@@ -22,7 +22,7 @@
 
 
             cmd.Connection = connect
-            cmd.CommandText = "update Enverto set  Name='" & TextBox1.Text & "',Phone='" & TextBox2.Text & "',Project='" & TextBox4.Text & "',Date='" & DateTimePicker1.Text & "' where SNo='" & TextBox3.Text & "' "
+            cmd.CommandText = "update Enverto set  Name='" & TextBox1.Text & "',Phone='" & TextBox2.Text & "',Position='" & TextBox4.Text & "',Date='" & DateTimePicker1.Text & "' where SNo='" & TextBox3.Text & "' "
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Data Updated")
@@ -54,6 +54,7 @@
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Updatedb()
 
+        clear()
 
     End Sub
 End Class

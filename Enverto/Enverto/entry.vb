@@ -23,7 +23,7 @@ Public Class entry
 
         Try
             cmd.Connection = connec
-            cmd.CommandText = "insert into Enverto (Name,Phone,Project,Date) values ('" & TextBox1.Text & "', '" & TextBox2.Text & "','" & TextBox4.Text & "','" & DateTimePicker1.Text & "')"
+            cmd.CommandText = "insert into Enverto (Name,Phone,Position,Date) values ('" & TextBox1.Text & "', '" & TextBox2.Text & "','" & TextBox4.Text & "','" & DateTimePicker1.Text & "')"
             cmd.ExecuteNonQuery()
             MessageBox.Show("Data inserted")
 

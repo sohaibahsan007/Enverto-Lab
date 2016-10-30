@@ -11,9 +11,16 @@
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        If (TextBox1.Text = "enverto" And TextBox2.Text = "f4d1a") Then
+            main.Show()
+            Me.Hide()
 
-        main.Show()
-        Me.Hide()
+        Else
+
+            MessageBox.Show("Wrong Password")
+
+        End If
+
 
 
 

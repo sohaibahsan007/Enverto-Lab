@@ -27,20 +27,21 @@ Partial Class showdb
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.SNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProjectDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.EnvertoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbDataSet1 = New Enverto.DbDataSet1()
         Me.EnvertoTableAdapter = New Enverto.DbDataSet1TableAdapters.EnvertoTableAdapter()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.SNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PhoneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PositionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EnvertoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -73,57 +74,12 @@ Partial Class showdb
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SNoDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.ProjectDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SNoDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PhoneDataGridViewTextBoxColumn, Me.DateDataGridViewTextBoxColumn, Me.PositionDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EnvertoBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(226, 139)
+        Me.DataGridView1.Location = New System.Drawing.Point(308, 150)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(642, 265)
+        Me.DataGridView1.Size = New System.Drawing.Size(543, 265)
         Me.DataGridView1.TabIndex = 33
-        '
-        'SNoDataGridViewTextBoxColumn
-        '
-        Me.SNoDataGridViewTextBoxColumn.DataPropertyName = "SNo"
-        Me.SNoDataGridViewTextBoxColumn.HeaderText = "SNo"
-        Me.SNoDataGridViewTextBoxColumn.Name = "SNoDataGridViewTextBoxColumn"
-        Me.SNoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        '
-        'PhoneDataGridViewTextBoxColumn
-        '
-        Me.PhoneDataGridViewTextBoxColumn.DataPropertyName = "Phone"
-        Me.PhoneDataGridViewTextBoxColumn.HeaderText = "Phone"
-        Me.PhoneDataGridViewTextBoxColumn.Name = "PhoneDataGridViewTextBoxColumn"
-        '
-        'ProjectDataGridViewTextBoxColumn
-        '
-        Me.ProjectDataGridViewTextBoxColumn.DataPropertyName = "Project"
-        Me.ProjectDataGridViewTextBoxColumn.HeaderText = "Project"
-        Me.ProjectDataGridViewTextBoxColumn.Name = "ProjectDataGridViewTextBoxColumn"
-        '
-        'DateDataGridViewTextBoxColumn
-        '
-        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
-        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
-        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
-        '
-        'EnvertoBindingSource
-        '
-        Me.EnvertoBindingSource.DataMember = "Enverto"
-        Me.EnvertoBindingSource.DataSource = Me.DbDataSet1
-        '
-        'DbDataSet1
-        '
-        Me.DbDataSet1.DataSetName = "DbDataSet1"
-        Me.DbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EnvertoTableAdapter
-        '
-        Me.EnvertoTableAdapter.ClearBeforeFill = True
         '
         'Label2
         '
@@ -147,12 +103,69 @@ Partial Class showdb
         Me.PictureBox1.TabIndex = 30
         Me.PictureBox1.TabStop = False
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Consolas", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Label3.Location = New System.Drawing.Point(478, 113)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(170, 22)
+        Me.Label3.TabIndex = 35
+        Me.Label3.Text = "List of Employ's"
+        '
+        'EnvertoBindingSource
+        '
+        Me.EnvertoBindingSource.DataMember = "Enverto"
+        Me.EnvertoBindingSource.DataSource = Me.DbDataSet1
+        '
+        'DbDataSet1
+        '
+        Me.DbDataSet1.DataSetName = "DbDataSet1"
+        Me.DbDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EnvertoTableAdapter
+        '
+        Me.EnvertoTableAdapter.ClearBeforeFill = True
+        '
+        'SNoDataGridViewTextBoxColumn
+        '
+        Me.SNoDataGridViewTextBoxColumn.DataPropertyName = "SNo"
+        Me.SNoDataGridViewTextBoxColumn.HeaderText = "SNo"
+        Me.SNoDataGridViewTextBoxColumn.Name = "SNoDataGridViewTextBoxColumn"
+        Me.SNoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'PhoneDataGridViewTextBoxColumn
+        '
+        Me.PhoneDataGridViewTextBoxColumn.DataPropertyName = "Phone"
+        Me.PhoneDataGridViewTextBoxColumn.HeaderText = "Phone"
+        Me.PhoneDataGridViewTextBoxColumn.Name = "PhoneDataGridViewTextBoxColumn"
+        '
+        'DateDataGridViewTextBoxColumn
+        '
+        Me.DateDataGridViewTextBoxColumn.DataPropertyName = "Date"
+        Me.DateDataGridViewTextBoxColumn.HeaderText = "Date"
+        Me.DateDataGridViewTextBoxColumn.Name = "DateDataGridViewTextBoxColumn"
+        '
+        'PositionDataGridViewTextBoxColumn
+        '
+        Me.PositionDataGridViewTextBoxColumn.DataPropertyName = "Position"
+        Me.PositionDataGridViewTextBoxColumn.HeaderText = "Position"
+        Me.PositionDataGridViewTextBoxColumn.Name = "PositionDataGridViewTextBoxColumn"
+        '
         'showdb
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.ClientSize = New System.Drawing.Size(1065, 446)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
@@ -162,9 +175,9 @@ Partial Class showdb
         Me.Name = "showdb"
         Me.Text = "List-Enverto Lab's"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EnvertoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -176,10 +189,11 @@ Partial Class showdb
     Friend WithEvents DbDataSet1 As Enverto.DbDataSet1
     Friend WithEvents EnvertoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents EnvertoTableAdapter As Enverto.DbDataSet1TableAdapters.EnvertoTableAdapter
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents SNoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents PhoneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents ProjectDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DateDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents PositionDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

@@ -117,26 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1478282988_Green_Backup" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1478282988_Green_Backup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1477946044_emblem-people" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477946044_emblem-people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spot1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1478197269_Sales-by-Payment-Method-rep" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1478197269_Sales-by-Payment-Method-rep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1477946039_config-users" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1477946039_config-users.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="1478282981_Backup_-_Seagate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1478282981_Backup_-_Seagate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

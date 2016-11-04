@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Enverto.My.MySettings.GlobalReference.Default.DbConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SpotHub.My.MySettings.GlobalReference.Default.DbConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EnvertoTableAdapter" GeneratorDataComponentClassName="EnvertoTableAdapter" Name="Enverto" UserDataComponentName="EnvertoTableAdapter">
@@ -85,7 +85,7 @@ SELECT SNo, Name, Phone, Date, Position FROM Enverto WHERE (SNo = @SNo)</Command
   <xs:element name="DbDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DbDataSet1" msprop:Generator_UserDSName="DbDataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Enverto" msprop:Generator_TableClassName="EnvertoDataTable" msprop:Generator_TableVarName="tableEnverto" msprop:Generator_RowChangedName="EnvertoRowChanged" msprop:Generator_TablePropName="Enverto" msprop:Generator_RowDeletingName="EnvertoRowDeleting" msprop:Generator_RowChangingName="EnvertoRowChanging" msprop:Generator_RowEvHandlerName="EnvertoRowChangeEventHandler" msprop:Generator_RowDeletedName="EnvertoRowDeleted" msprop:Generator_RowClassName="EnvertoRow" msprop:Generator_UserTableName="Enverto" msprop:Generator_RowEvArgName="EnvertoRowChangeEvent">
+        <xs:element name="Enverto" msprop:Generator_TableClassName="EnvertoDataTable" msprop:Generator_TableVarName="tableEnverto" msprop:Generator_TablePropName="Enverto" msprop:Generator_RowDeletingName="EnvertoRowDeleting" msprop:Generator_RowChangingName="EnvertoRowChanging" msprop:Generator_RowEvHandlerName="EnvertoRowChangeEventHandler" msprop:Generator_RowDeletedName="EnvertoRowDeleted" msprop:Generator_UserTableName="Enverto" msprop:Generator_RowChangedName="EnvertoRowChanged" msprop:Generator_RowEvArgName="EnvertoRowChangeEvent" msprop:Generator_RowClassName="EnvertoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="SNo" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnSNo" msprop:Generator_ColumnPropNameInRow="SNo" msprop:Generator_ColumnPropNameInTable="SNoColumn" msprop:Generator_UserColumnName="SNo" type="xs:decimal" />

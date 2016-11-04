@@ -39,7 +39,7 @@ Namespace My.Resources
         Friend ReadOnly Property ResourceManager() As Global.System.Resources.ResourceManager
             Get
                 If Object.ReferenceEquals(resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Enverto.Resources", GetType(Resources).Assembly)
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("SpotHub.Resources", GetType(Resources).Assembly)
                     resourceMan = temp
                 End If
                 Return resourceMan
@@ -63,9 +63,69 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property logo() As System.Drawing.Bitmap
+        Friend ReadOnly Property _1477946039_config_users() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("logo", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("1477946039_config-users", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1477946044_emblem_people() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1477946044_emblem-people", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1478197269_Sales_by_Payment_Method_rep() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1478197269_Sales-by-Payment-Method-rep", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1478282981_Backup___Seagate() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1478282981_Backup_-_Seagate", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1478282988_Green_Backup() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1478282988_Green_Backup", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property spot() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("spot", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property spot1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("spot1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -8,14 +8,14 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Enverto")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Microsoft")> 
-<Assembly: AssemblyProduct("Enverto")> 
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2016")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("SpotHub")> 
+<Assembly: AssemblyDescription("SpotHub Data Base Center")> 
+<Assembly: AssemblyCompany("SpotHub")> 
+<Assembly: AssemblyProduct("Data Base Center for SpotHub")> 
+<Assembly: AssemblyCopyright("Copyright © SpotHub 2016")> 
+<Assembly: AssemblyTrademark("Enverto Lab's")> 
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(False)> 
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("6ebf3b1f-68d6-45b2-b351-cf851d13cfec")> 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.0.2.0")> 
 <Assembly: AssemblyFileVersion("1.0.0.0")> 

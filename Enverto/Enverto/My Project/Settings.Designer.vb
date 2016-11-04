@@ -74,9 +74,9 @@ Namespace My
     Friend Module MySettingsProperty
         
         <Global.System.ComponentModel.Design.HelpKeywordAttribute("My.Settings")>  _
-        Friend ReadOnly Property Settings() As Global.Enverto.My.MySettings
+        Friend ReadOnly Property Settings() As Global.SpotHub.My.MySettings
             Get
-                Return Global.Enverto.My.MySettings.Default
+                Return Global.SpotHub.My.MySettings.Default
             End Get
         End Property
     End Module

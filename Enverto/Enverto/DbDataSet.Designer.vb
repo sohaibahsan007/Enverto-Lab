@@ -25,7 +25,7 @@ Option Explicit On
 Partial Public Class DbDataSet
     Inherits Global.System.Data.DataSet
     
-    Private tableEnverto As EnvertoDataTable
+    Private tableclients As clientsDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class DbDataSet
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("Enverto")) Is Nothing) Then
-                MyBase.Tables.Add(New EnvertoDataTable(ds.Tables("Enverto")))
+            If (Not (ds.Tables("clients")) Is Nothing) Then
+                MyBase.Tables.Add(New clientsDataTable(ds.Tables("clients")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class DbDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Enverto() As EnvertoDataTable
+    Public ReadOnly Property clients() As clientsDataTable
         Get
-            Return Me.tableEnverto
+            Return Me.tableclients
         End Get
     End Property
     
@@ -153,8 +153,8 @@ Partial Public Class DbDataSet
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("Enverto")) Is Nothing) Then
-                MyBase.Tables.Add(New EnvertoDataTable(ds.Tables("Enverto")))
+            If (Not (ds.Tables("clients")) Is Nothing) Then
+                MyBase.Tables.Add(New clientsDataTable(ds.Tables("clients")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class DbDataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tableEnverto = CType(MyBase.Tables("Enverto"),EnvertoDataTable)
+        Me.tableclients = CType(MyBase.Tables("clients"),clientsDataTable)
         If (initTable = true) Then
-            If (Not (Me.tableEnverto) Is Nothing) Then
-                Me.tableEnverto.InitVars
+            If (Not (Me.tableclients) Is Nothing) Then
+                Me.tableclients.InitVars
             End If
         End If
     End Sub
@@ -204,13 +204,13 @@ Partial Public Class DbDataSet
         Me.Namespace = "http://tempuri.org/DbDataSet.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tableEnverto = New EnvertoDataTable()
-        MyBase.Tables.Add(Me.tableEnverto)
+        Me.tableclients = New clientsDataTable()
+        MyBase.Tables.Add(Me.tableclients)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializeEnverto() As Boolean
+    Private Function ShouldSerializeclients() As Boolean
         Return false
     End Function
     
@@ -273,31 +273,39 @@ Partial Public Class DbDataSet
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub EnvertoRowChangeEventHandler(ByVal sender As Object, ByVal e As EnvertoRowChangeEvent)
+    Public Delegate Sub clientsRowChangeEventHandler(ByVal sender As Object, ByVal e As clientsRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class EnvertoDataTable
-        Inherits Global.System.Data.TypedTableBase(Of EnvertoRow)
+    Partial Public Class clientsDataTable
+        Inherits Global.System.Data.TypedTableBase(Of clientsRow)
         
-        Private columndsno As Global.System.Data.DataColumn
+        Private columnid As Global.System.Data.DataColumn
         
-        Private columndname As Global.System.Data.DataColumn
+        Private columnfn As Global.System.Data.DataColumn
         
-        Private columndcell As Global.System.Data.DataColumn
+        Private columnln As Global.System.Data.DataColumn
         
-        Private columndproject As Global.System.Data.DataColumn
+        Private columnpro As Global.System.Data.DataColumn
         
-        Private columndadm As Global.System.Data.DataColumn
+        Private columncell As Global.System.Data.DataColumn
+        
+        Private columnprotype As Global.System.Data.DataColumn
+        
+        Private columnproreq As Global.System.Data.DataColumn
+        
+        Private columndate As Global.System.Data.DataColumn
+        
+        Private columnddate As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Enverto"
+            Me.TableName = "clients"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -330,41 +338,73 @@ Partial Public Class DbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dsnoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndsno
+                Return Me.columnid
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dnameColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property fnColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndname
+                Return Me.columnfn
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dcellColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property lnColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndcell
+                Return Me.columnln
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dprojectColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property proColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndproject
+                Return Me.columnpro
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dadmColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property cellColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndadm
+                Return Me.columncell
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property protypeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnprotype
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property proreqColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproreq
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property dateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ddateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnddate
             End Get
         End Property
         
@@ -379,50 +419,50 @@ Partial Public Class DbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As EnvertoRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As clientsRow
             Get
-                Return CType(Me.Rows(index),EnvertoRow)
+                Return CType(Me.Rows(index),clientsRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EnvertoRowChanging As EnvertoRowChangeEventHandler
+        Public Event clientsRowChanging As clientsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EnvertoRowChanged As EnvertoRowChangeEventHandler
+        Public Event clientsRowChanged As clientsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EnvertoRowDeleting As EnvertoRowChangeEventHandler
+        Public Event clientsRowDeleting As clientsRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event EnvertoRowDeleted As EnvertoRowChangeEventHandler
+        Public Event clientsRowDeleted As clientsRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddEnvertoRow(ByVal row As EnvertoRow)
+        Public Overloads Sub AddclientsRow(ByVal row As clientsRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddEnvertoRow(ByVal dname As String, ByVal dcell As Decimal, ByVal dproject As String, ByVal dadm As Date) As EnvertoRow
-            Dim rowEnvertoRow As EnvertoRow = CType(Me.NewRow,EnvertoRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, dname, dcell, dproject, dadm}
-            rowEnvertoRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowEnvertoRow)
-            Return rowEnvertoRow
+        Public Overloads Function AddclientsRow(ByVal fn As String, ByVal ln As String, ByVal pro As String, ByVal cell As Decimal, ByVal protype As String, ByVal proreq As String, ByVal _date As Date, ByVal ddate As Date) As clientsRow
+            Dim rowclientsRow As clientsRow = CType(Me.NewRow,clientsRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, fn, ln, pro, cell, protype, proreq, _date, ddate}
+            rowclientsRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowclientsRow)
+            Return rowclientsRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindBydsno(ByVal dsno As Decimal) As EnvertoRow
-            Return CType(Me.Rows.Find(New Object() {dsno}),EnvertoRow)
+        Public Function FindByid(ByVal id As Decimal) As clientsRow
+            Return CType(Me.Rows.Find(New Object() {id}),clientsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As EnvertoDataTable = CType(MyBase.Clone,EnvertoDataTable)
+            Dim cln As clientsDataTable = CType(MyBase.Clone,clientsDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -430,67 +470,85 @@ Partial Public Class DbDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New EnvertoDataTable()
+            Return New clientsDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columndsno = MyBase.Columns("dsno")
-            Me.columndname = MyBase.Columns("dname")
-            Me.columndcell = MyBase.Columns("dcell")
-            Me.columndproject = MyBase.Columns("dproject")
-            Me.columndadm = MyBase.Columns("dadm")
+            Me.columnid = MyBase.Columns("id")
+            Me.columnfn = MyBase.Columns("fn")
+            Me.columnln = MyBase.Columns("ln")
+            Me.columnpro = MyBase.Columns("pro")
+            Me.columncell = MyBase.Columns("cell")
+            Me.columnprotype = MyBase.Columns("protype")
+            Me.columnproreq = MyBase.Columns("proreq")
+            Me.columndate = MyBase.Columns("date")
+            Me.columnddate = MyBase.Columns("ddate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columndsno = New Global.System.Data.DataColumn("dsno", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndsno)
-            Me.columndname = New Global.System.Data.DataColumn("dname", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndname)
-            Me.columndcell = New Global.System.Data.DataColumn("dcell", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndcell)
-            Me.columndproject = New Global.System.Data.DataColumn("dproject", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndproject)
-            Me.columndadm = New Global.System.Data.DataColumn("dadm", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndadm)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columndsno}, true))
-            Me.columndsno.AutoIncrement = true
-            Me.columndsno.AutoIncrementSeed = -1
-            Me.columndsno.AutoIncrementStep = -1
-            Me.columndsno.AllowDBNull = false
-            Me.columndsno.ReadOnly = true
-            Me.columndsno.Unique = true
-            Me.columndname.MaxLength = 50
-            Me.columndproject.MaxLength = 50
+            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid)
+            Me.columnfn = New Global.System.Data.DataColumn("fn", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnfn)
+            Me.columnln = New Global.System.Data.DataColumn("ln", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnln)
+            Me.columnpro = New Global.System.Data.DataColumn("pro", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnpro)
+            Me.columncell = New Global.System.Data.DataColumn("cell", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columncell)
+            Me.columnprotype = New Global.System.Data.DataColumn("protype", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnprotype)
+            Me.columnproreq = New Global.System.Data.DataColumn("proreq", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproreq)
+            Me.columndate = New Global.System.Data.DataColumn("date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "dateColumn")
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
+            Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "date")
+            MyBase.Columns.Add(Me.columndate)
+            Me.columnddate = New Global.System.Data.DataColumn("ddate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnddate)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
+            Me.columnid.AutoIncrement = true
+            Me.columnid.AutoIncrementSeed = -1
+            Me.columnid.AutoIncrementStep = -1
+            Me.columnid.AllowDBNull = false
+            Me.columnid.ReadOnly = true
+            Me.columnid.Unique = true
+            Me.columnfn.MaxLength = 50
+            Me.columnln.MaxLength = 50
+            Me.columnpro.MaxLength = 50
+            Me.columnprotype.MaxLength = 500
+            Me.columnproreq.MaxLength = 1000
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewEnvertoRow() As EnvertoRow
-            Return CType(Me.NewRow,EnvertoRow)
+        Public Function NewclientsRow() As clientsRow
+            Return CType(Me.NewRow,clientsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New EnvertoRow(builder)
+            Return New clientsRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(EnvertoRow)
+            Return GetType(clientsRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.EnvertoRowChangedEvent) Is Nothing) Then
-                RaiseEvent EnvertoRowChanged(Me, New EnvertoRowChangeEvent(CType(e.Row,EnvertoRow), e.Action))
+            If (Not (Me.clientsRowChangedEvent) Is Nothing) Then
+                RaiseEvent clientsRowChanged(Me, New clientsRowChangeEvent(CType(e.Row,clientsRow), e.Action))
             End If
         End Sub
         
@@ -498,8 +556,8 @@ Partial Public Class DbDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.EnvertoRowChangingEvent) Is Nothing) Then
-                RaiseEvent EnvertoRowChanging(Me, New EnvertoRowChangeEvent(CType(e.Row,EnvertoRow), e.Action))
+            If (Not (Me.clientsRowChangingEvent) Is Nothing) Then
+                RaiseEvent clientsRowChanging(Me, New clientsRowChangeEvent(CType(e.Row,clientsRow), e.Action))
             End If
         End Sub
         
@@ -507,8 +565,8 @@ Partial Public Class DbDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.EnvertoRowDeletedEvent) Is Nothing) Then
-                RaiseEvent EnvertoRowDeleted(Me, New EnvertoRowChangeEvent(CType(e.Row,EnvertoRow), e.Action))
+            If (Not (Me.clientsRowDeletedEvent) Is Nothing) Then
+                RaiseEvent clientsRowDeleted(Me, New clientsRowChangeEvent(CType(e.Row,clientsRow), e.Action))
             End If
         End Sub
         
@@ -516,14 +574,14 @@ Partial Public Class DbDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.EnvertoRowDeletingEvent) Is Nothing) Then
-                RaiseEvent EnvertoRowDeleting(Me, New EnvertoRowChangeEvent(CType(e.Row,EnvertoRow), e.Action))
+            If (Not (Me.clientsRowDeletingEvent) Is Nothing) Then
+                RaiseEvent clientsRowDeleting(Me, New clientsRowChangeEvent(CType(e.Row,clientsRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemoveEnvertoRow(ByVal row As EnvertoRow)
+        Public Sub RemoveclientsRow(ByVal row As clientsRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -550,7 +608,7 @@ Partial Public Class DbDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "EnvertoDataTable"
+            attribute2.FixedValue = "clientsDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -597,135 +655,243 @@ Partial Public Class DbDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class EnvertoRow
+    Partial Public Class clientsRow
         Inherits Global.System.Data.DataRow
         
-        Private tableEnverto As EnvertoDataTable
+        Private tableclients As clientsDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tableEnverto = CType(Me.Table,EnvertoDataTable)
+            Me.tableclients = CType(Me.Table,clientsDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dsno() As Decimal
+        Public Property id() As Decimal
             Get
-                Return CType(Me(Me.tableEnverto.dsnoColumn),Decimal)
+                Return CType(Me(Me.tableclients.idColumn),Decimal)
             End Get
             Set
-                Me(Me.tableEnverto.dsnoColumn) = value
+                Me(Me.tableclients.idColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dname() As String
+        Public Property fn() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEnverto.dnameColumn),String)
+                    Return CType(Me(Me.tableclients.fnColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dname' in table 'Enverto' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'fn' in table 'clients' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEnverto.dnameColumn) = value
+                Me(Me.tableclients.fnColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dcell() As Decimal
+        Public Property ln() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEnverto.dcellColumn),Decimal)
+                    Return CType(Me(Me.tableclients.lnColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dcell' in table 'Enverto' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ln' in table 'clients' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEnverto.dcellColumn) = value
+                Me(Me.tableclients.lnColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dproject() As String
+        Public Property pro() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEnverto.dprojectColumn),String)
+                    Return CType(Me(Me.tableclients.proColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dproject' in table 'Enverto' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'pro' in table 'clients' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEnverto.dprojectColumn) = value
+                Me(Me.tableclients.proColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dadm() As Date
+        Public Property cell() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tableEnverto.dadmColumn),Date)
+                    Return CType(Me(Me.tableclients.cellColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dadm' in table 'Enverto' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'cell' in table 'clients' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEnverto.dadmColumn) = value
+                Me(Me.tableclients.cellColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdnameNull() As Boolean
-            Return Me.IsNull(Me.tableEnverto.dnameColumn)
+        Public Property protype() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclients.protypeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'protype' in table 'clients' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclients.protypeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property proreq() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableclients.proreqColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'proreq' in table 'clients' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclients.proreqColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property _date() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableclients.dateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'date' in table 'clients' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclients.dateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ddate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableclients.ddateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ddate' in table 'clients' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableclients.ddateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsfnNull() As Boolean
+            Return Me.IsNull(Me.tableclients.fnColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdnameNull()
-            Me(Me.tableEnverto.dnameColumn) = Global.System.Convert.DBNull
+        Public Sub SetfnNull()
+            Me(Me.tableclients.fnColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdcellNull() As Boolean
-            Return Me.IsNull(Me.tableEnverto.dcellColumn)
+        Public Function IslnNull() As Boolean
+            Return Me.IsNull(Me.tableclients.lnColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdcellNull()
-            Me(Me.tableEnverto.dcellColumn) = Global.System.Convert.DBNull
+        Public Sub SetlnNull()
+            Me(Me.tableclients.lnColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdprojectNull() As Boolean
-            Return Me.IsNull(Me.tableEnverto.dprojectColumn)
+        Public Function IsproNull() As Boolean
+            Return Me.IsNull(Me.tableclients.proColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdprojectNull()
-            Me(Me.tableEnverto.dprojectColumn) = Global.System.Convert.DBNull
+        Public Sub SetproNull()
+            Me(Me.tableclients.proColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdadmNull() As Boolean
-            Return Me.IsNull(Me.tableEnverto.dadmColumn)
+        Public Function IscellNull() As Boolean
+            Return Me.IsNull(Me.tableclients.cellColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdadmNull()
-            Me(Me.tableEnverto.dadmColumn) = Global.System.Convert.DBNull
+        Public Sub SetcellNull()
+            Me(Me.tableclients.cellColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsprotypeNull() As Boolean
+            Return Me.IsNull(Me.tableclients.protypeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetprotypeNull()
+            Me(Me.tableclients.protypeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsproreqNull() As Boolean
+            Return Me.IsNull(Me.tableclients.proreqColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetproreqNull()
+            Me(Me.tableclients.proreqColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function Is_dateNull() As Boolean
+            Return Me.IsNull(Me.tableclients.dateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub Set_dateNull()
+            Me(Me.tableclients.dateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsddateNull() As Boolean
+            Return Me.IsNull(Me.tableclients.ddateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetddateNull()
+            Me(Me.tableclients.ddateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -733,16 +899,16 @@ Partial Public Class DbDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class EnvertoRowChangeEvent
+    Public Class clientsRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As EnvertoRow
+        Private eventRow As clientsRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As EnvertoRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As clientsRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -750,7 +916,7 @@ Partial Public Class DbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As EnvertoRow
+        Public ReadOnly Property Row() As clientsRow
             Get
                 Return Me.eventRow
             End Get
@@ -777,7 +943,7 @@ Namespace DbDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class EnvertoTableAdapter
+    Partial Public Class clientsTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -894,71 +1060,108 @@ Namespace DbDataSetTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Enverto"
-            tableMapping.ColumnMappings.Add("dsno", "dsno")
-            tableMapping.ColumnMappings.Add("dname", "dname")
-            tableMapping.ColumnMappings.Add("dcell", "dcell")
-            tableMapping.ColumnMappings.Add("dproject", "dproject")
-            tableMapping.ColumnMappings.Add("dadm", "dadm")
+            tableMapping.DataSetTable = "clients"
+            tableMapping.ColumnMappings.Add("id", "id")
+            tableMapping.ColumnMappings.Add("fn", "fn")
+            tableMapping.ColumnMappings.Add("ln", "ln")
+            tableMapping.ColumnMappings.Add("pro", "pro")
+            tableMapping.ColumnMappings.Add("cell", "cell")
+            tableMapping.ColumnMappings.Add("protype", "protype")
+            tableMapping.ColumnMappings.Add("proreq", "proreq")
+            tableMapping.ColumnMappings.Add("date", "date")
+            tableMapping.ColumnMappings.Add("ddate", "ddate")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Enverto] WHERE (([dsno] = @Original_dsno) AND ((@IsNull_dname "& _ 
-                "= 1 AND [dname] IS NULL) OR ([dname] = @Original_dname)) AND ((@IsNull_dcell = 1"& _ 
-                " AND [dcell] IS NULL) OR ([dcell] = @Original_dcell)) AND ((@IsNull_dproject = 1"& _ 
-                " AND [dproject] IS NULL) OR ([dproject] = @Original_dproject)) AND ((@IsNull_dad"& _ 
-                "m = 1 AND [dadm] IS NULL) OR ([dadm] = @Original_dadm)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[clients] WHERE (([id] = @Original_id) AND ((@IsNull_fn = 1 AND"& _ 
+                " [fn] IS NULL) OR ([fn] = @Original_fn)) AND ((@IsNull_ln = 1 AND [ln] IS NULL) "& _ 
+                "OR ([ln] = @Original_ln)) AND ((@IsNull_pro = 1 AND [pro] IS NULL) OR ([pro] = @"& _ 
+                "Original_pro)) AND ((@IsNull_cell = 1 AND [cell] IS NULL) OR ([cell] = @Original"& _ 
+                "_cell)) AND ((@IsNull_protype = 1 AND [protype] IS NULL) OR ([protype] = @Origin"& _ 
+                "al_protype)) AND ((@IsNull_proreq = 1 AND [proreq] IS NULL) OR ([proreq] = @Orig"& _ 
+                "inal_proreq)) AND ((@IsNull_date = 1 AND [date] IS NULL) OR ([date] = @Original_"& _ 
+                "date)) AND ((@IsNull_ddate = 1 AND [ddate] IS NULL) OR ([ddate] = @Original_ddat"& _ 
+                "e)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dsno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dsno", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dname", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dcell", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dcell", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dcell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dcell", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dproject", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dproject", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dadm", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dadm", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_fn", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fn", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ln", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ln", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_pro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_pro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cell", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cell", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "cell", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_protype", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_protype", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_proreq", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_proreq", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ddate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ddate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Enverto] ([dname], [dcell], [dproject], [dadm]) VALUES (@dname"& _ 
-                ", @dcell, @dproject, @dadm);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT dsno, dname, dcell, dproject, dadm FROM Env"& _ 
-                "erto WHERE (dsno = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[clients] ([fn], [ln], [pro], [cell], [protype], [proreq], [dat"& _ 
+                "e], [ddate]) VALUES (@fn, @ln, @pro, @cell, @protype, @proreq, @date, @ddate);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
+                "SELECT id, fn, ln, pro, cell, protype, proreq, date, ddate FROM clients WHERE (i"& _ 
+                "d = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dcell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dcell", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dproject", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dadm", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fn", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ln", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@pro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "cell", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@protype", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@proreq", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ddate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Enverto] SET [dname] = @dname, [dcell] = @dcell, [dproject] = @dpro"& _ 
-                "ject, [dadm] = @dadm WHERE (([dsno] = @Original_dsno) AND ((@IsNull_dname = 1 AN"& _ 
-                "D [dname] IS NULL) OR ([dname] = @Original_dname)) AND ((@IsNull_dcell = 1 AND ["& _ 
-                "dcell] IS NULL) OR ([dcell] = @Original_dcell)) AND ((@IsNull_dproject = 1 AND ["& _ 
-                "dproject] IS NULL) OR ([dproject] = @Original_dproject)) AND ((@IsNull_dadm = 1 "& _ 
-                "AND [dadm] IS NULL) OR ([dadm] = @Original_dadm)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT dsno, dname, dcell, "& _ 
-                "dproject, dadm FROM Enverto WHERE (dsno = @dsno)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[clients] SET [fn] = @fn, [ln] = @ln, [pro] = @pro, [cell] = @cell, "& _ 
+                "[protype] = @protype, [proreq] = @proreq, [date] = @date, [ddate] = @ddate WHERE"& _ 
+                " (([id] = @Original_id) AND ((@IsNull_fn = 1 AND [fn] IS NULL) OR ([fn] = @Origi"& _ 
+                "nal_fn)) AND ((@IsNull_ln = 1 AND [ln] IS NULL) OR ([ln] = @Original_ln)) AND (("& _ 
+                "@IsNull_pro = 1 AND [pro] IS NULL) OR ([pro] = @Original_pro)) AND ((@IsNull_cel"& _ 
+                "l = 1 AND [cell] IS NULL) OR ([cell] = @Original_cell)) AND ((@IsNull_protype = "& _ 
+                "1 AND [protype] IS NULL) OR ([protype] = @Original_protype)) AND ((@IsNull_prore"& _ 
+                "q = 1 AND [proreq] IS NULL) OR ([proreq] = @Original_proreq)) AND ((@IsNull_date"& _ 
+                " = 1 AND [date] IS NULL) OR ([date] = @Original_date)) AND ((@IsNull_ddate = 1 A"& _ 
+                "ND [ddate] IS NULL) OR ([ddate] = @Original_ddate)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, fn, ln, pro, c"& _ 
+                "ell, protype, proreq, date, ddate FROM clients WHERE (id = @id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dcell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dcell", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dproject", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dadm", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dsno", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dsno", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dname", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dname", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dname", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dcell", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dcell", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dcell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "dcell", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dproject", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dproject", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dproject", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_dadm", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_dadm", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "dadm", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@dsno", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "dsno", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@fn", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ln", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@pro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "cell", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@protype", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@proreq", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ddate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_fn", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_fn", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "fn", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ln", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ln", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ln", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_pro", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_pro", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "pro", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cell", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cell", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cell", Global.System.Data.SqlDbType.[Decimal], 0, Global.System.Data.ParameterDirection.Input, 18, 0, "cell", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_protype", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_protype", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "protype", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_proreq", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_proreq", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "proreq", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ddate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ddate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ddate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.[Decimal], 9, Global.System.Data.ParameterDirection.Input, 18, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Enverto.My.MySettings.Default.DbConnectionString
+            Me._connection.ConnectionString = Global.SpotHub.My.MySettings.Default.DbConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -967,7 +1170,7 @@ Namespace DbDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT dsno, dname, dcell, dproject, dadm FROM dbo.Enverto"
+            Me._commandCollection(0).CommandText = "SELECT id, fn, ln, pro, cell, protype, proreq, date, ddate FROM dbo.clients"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -975,7 +1178,7 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DbDataSet.EnvertoDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DbDataSet.clientsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -988,9 +1191,9 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DbDataSet.EnvertoDataTable
+        Public Overloads Overridable Function GetData() As DbDataSet.clientsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DbDataSet.EnvertoDataTable = New DbDataSet.EnvertoDataTable()
+            Dim dataTable As DbDataSet.clientsDataTable = New DbDataSet.clientsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -998,7 +1201,7 @@ Namespace DbDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DbDataSet.EnvertoDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DbDataSet.clientsDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -1006,7 +1209,7 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DbDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Enverto")
+            Return Me.Adapter.Update(dataSet, "clients")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1027,35 +1230,63 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_dsno As Decimal, ByVal Original_dname As String, ByVal Original_dcell As Global.System.Nullable(Of Decimal), ByVal Original_dproject As String, ByVal Original_dadm As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_dsno,Decimal)
-            If (Original_dname Is Nothing) Then
+        Public Overloads Overridable Function Delete(ByVal Original_id As Decimal, ByVal Original_fn As String, ByVal Original_ln As String, ByVal Original_pro As String, ByVal Original_cell As Global.System.Nullable(Of Decimal), ByVal Original_protype As String, ByVal Original_proreq As String, ByVal Original_date As Global.System.Nullable(Of Date), ByVal Original_ddate As Global.System.Nullable(Of Date)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Decimal)
+            If (Original_fn Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_dname,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_fn,String)
             End If
-            If (Original_dcell.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_dcell.Value,Decimal)
-            Else
+            If (Original_ln Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ln,String)
             End If
-            If (Original_dproject Is Nothing) Then
+            If (Original_pro Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_dproject,String)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_pro,String)
             End If
-            If (Original_dadm.HasValue = true) Then
+            If (Original_cell.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_dadm.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_cell.Value,Decimal)
             Else
                 Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+            End If
+            If (Original_protype Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_protype,String)
+            End If
+            If (Original_proreq Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_proreq,String)
+            End If
+            If (Original_date.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_date.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ddate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_ddate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1076,26 +1307,46 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal dname As String, ByVal dcell As Global.System.Nullable(Of Decimal), ByVal dproject As String, ByVal dadm As Global.System.Nullable(Of Date)) As Integer
-            If (dname Is Nothing) Then
+        Public Overloads Overridable Function Insert(ByVal fn As String, ByVal ln As String, ByVal pro As String, ByVal cell As Global.System.Nullable(Of Decimal), ByVal protype As String, ByVal proreq As String, ByVal _date As Global.System.Nullable(Of Date), ByVal ddate As Global.System.Nullable(Of Date)) As Integer
+            If (fn Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(dname,String)
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(fn,String)
             End If
-            If (dcell.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(dcell.Value,Decimal)
-            Else
+            If (ln Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(ln,String)
             End If
-            If (dproject Is Nothing) Then
+            If (pro Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(dproject,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(pro,String)
             End If
-            If (dadm.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(dadm.Value,Date)
+            If (cell.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(cell.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (protype Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(protype,String)
+            End If
+            If (proreq Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(proreq,String)
+            End If
+            If (_date.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(_date.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (ddate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(ddate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -1116,57 +1367,123 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal dname As String, ByVal dcell As Global.System.Nullable(Of Decimal), ByVal dproject As String, ByVal dadm As Global.System.Nullable(Of Date), ByVal Original_dsno As Decimal, ByVal Original_dname As String, ByVal Original_dcell As Global.System.Nullable(Of Decimal), ByVal Original_dproject As String, ByVal Original_dadm As Global.System.Nullable(Of Date), ByVal dsno As Decimal) As Integer
-            If (dname Is Nothing) Then
+        Public Overloads Overridable Function Update( _
+                    ByVal fn As String,  _
+                    ByVal ln As String,  _
+                    ByVal pro As String,  _
+                    ByVal cell As Global.System.Nullable(Of Decimal),  _
+                    ByVal protype As String,  _
+                    ByVal proreq As String,  _
+                    ByVal _date As Global.System.Nullable(Of Date),  _
+                    ByVal ddate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_id As Decimal,  _
+                    ByVal Original_fn As String,  _
+                    ByVal Original_ln As String,  _
+                    ByVal Original_pro As String,  _
+                    ByVal Original_cell As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_protype As String,  _
+                    ByVal Original_proreq As String,  _
+                    ByVal Original_date As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ddate As Global.System.Nullable(Of Date),  _
+                    ByVal id As Decimal) As Integer
+            If (fn Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(dname,String)
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(fn,String)
             End If
-            If (dcell.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(dcell.Value,Decimal)
-            Else
+            If (ln Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ln,String)
             End If
-            If (dproject Is Nothing) Then
+            If (pro Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(dproject,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(pro,String)
             End If
-            If (dadm.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(dadm.Value,Date)
+            If (cell.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(cell.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_dsno,Decimal)
-            If (Original_dname Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+            If (protype Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(protype,String)
+            End If
+            If (proreq Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(proreq,String)
+            End If
+            If (_date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(_date.Value,Date)
+            Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_dname,String)
             End If
-            If (Original_dcell.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_dcell.Value,Decimal)
+            If (ddate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ddate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
-            If (Original_dproject Is Nothing) Then
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_id,Decimal)
+            If (Original_fn Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_dproject,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_fn,String)
             End If
-            If (Original_dadm.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_dadm.Value,Date)
-            Else
+            If (Original_ln Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ln,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(dsno,Decimal)
+            If (Original_pro Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_pro,String)
+            End If
+            If (Original_cell.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_cell.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_protype Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_protype,String)
+            End If
+            If (Original_proreq Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_proreq,String)
+            End If
+            If (Original_date.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_date.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ddate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_ddate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(25).Value = CType(id,Decimal)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -1186,8 +1503,25 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal dname As String, ByVal dcell As Global.System.Nullable(Of Decimal), ByVal dproject As String, ByVal dadm As Global.System.Nullable(Of Date), ByVal Original_dsno As Decimal, ByVal Original_dname As String, ByVal Original_dcell As Global.System.Nullable(Of Decimal), ByVal Original_dproject As String, ByVal Original_dadm As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(dname, dcell, dproject, dadm, Original_dsno, Original_dname, Original_dcell, Original_dproject, Original_dadm, Original_dsno)
+        Public Overloads Overridable Function Update( _
+                    ByVal fn As String,  _
+                    ByVal ln As String,  _
+                    ByVal pro As String,  _
+                    ByVal cell As Global.System.Nullable(Of Decimal),  _
+                    ByVal protype As String,  _
+                    ByVal proreq As String,  _
+                    ByVal _date As Global.System.Nullable(Of Date),  _
+                    ByVal ddate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_id As Decimal,  _
+                    ByVal Original_fn As String,  _
+                    ByVal Original_ln As String,  _
+                    ByVal Original_pro As String,  _
+                    ByVal Original_cell As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_protype As String,  _
+                    ByVal Original_proreq As String,  _
+                    ByVal Original_date As Global.System.Nullable(Of Date),  _
+                    ByVal Original_ddate As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(fn, ln, pro, cell, protype, proreq, _date, ddate, Original_id, Original_fn, Original_ln, Original_pro, Original_cell, Original_protype, Original_proreq, Original_date, Original_ddate, Original_id)
         End Function
     End Class
     
@@ -1204,7 +1538,7 @@ Namespace DbDataSetTableAdapters
         
         Private _updateOrder As UpdateOrderOption
         
-        Private _envertoTableAdapter As EnvertoTableAdapter
+        Private _clientsTableAdapter As clientsTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -1226,12 +1560,12 @@ Namespace DbDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property EnvertoTableAdapter() As EnvertoTableAdapter
+        Public Property clientsTableAdapter() As clientsTableAdapter
             Get
-                Return Me._envertoTableAdapter
+                Return Me._clientsTableAdapter
             End Get
             Set
-                Me._envertoTableAdapter = value
+                Me._clientsTableAdapter = value
             End Set
         End Property
         
@@ -1254,9 +1588,9 @@ Namespace DbDataSetTableAdapters
                 If (Not (Me._connection) Is Nothing) Then
                     Return Me._connection
                 End If
-                If ((Not (Me._envertoTableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._envertoTableAdapter.Connection) Is Nothing)) Then
-                    Return Me._envertoTableAdapter.Connection
+                If ((Not (Me._clientsTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._clientsTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._clientsTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -1271,7 +1605,7 @@ Namespace DbDataSetTableAdapters
         Public ReadOnly Property TableAdapterInstanceCount() As Integer
             Get
                 Dim count As Integer = 0
-                If (Not (Me._envertoTableAdapter) Is Nothing) Then
+                If (Not (Me._clientsTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -1285,12 +1619,12 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateUpdatedRows(ByVal dataSet As DbDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._envertoTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Enverto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._clientsTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.clients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._envertoTableAdapter.Update(updatedRows))
+                    result = (result + Me._clientsTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -1304,11 +1638,11 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateInsertedRows(ByVal dataSet As DbDataSet, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._envertoTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.Enverto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._clientsTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.clients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._envertoTableAdapter.Update(addedRows))
+                    result = (result + Me._clientsTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -1322,11 +1656,11 @@ Namespace DbDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As DbDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._envertoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Enverto.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._clientsTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.clients.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._envertoTableAdapter.Update(deletedRows))
+                    result = (result + Me._clientsTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -1371,8 +1705,8 @@ Namespace DbDataSetTableAdapters
             If (dataSet.HasChanges = false) Then
                 Return 0
             End If
-            If ((Not (Me._envertoTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._envertoTableAdapter.Connection) = false)) Then
+            If ((Not (Me._clientsTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._clientsTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -1408,13 +1742,13 @@ Namespace DbDataSetTableAdapters
             Try 
                 '---- Prepare for update -----------
                 '
-                If (Not (Me._envertoTableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._envertoTableAdapter, Me._envertoTableAdapter.Connection)
-                    Me._envertoTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
-                    Me._envertoTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
-                    If Me._envertoTableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._envertoTableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._envertoTableAdapter.Adapter)
+                If (Not (Me._clientsTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._clientsTableAdapter, Me._clientsTableAdapter.Connection)
+                    Me._clientsTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._clientsTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._clientsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._clientsTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._clientsTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -1477,9 +1811,9 @@ Namespace DbDataSetTableAdapters
                 If workConnOpened Then
                     workConnection.Close
                 End If
-                If (Not (Me._envertoTableAdapter) Is Nothing) Then
-                    Me._envertoTableAdapter.Connection = CType(revertConnections(Me._envertoTableAdapter),Global.System.Data.SqlClient.SqlConnection)
-                    Me._envertoTableAdapter.Transaction = Nothing
+                If (Not (Me._clientsTableAdapter) Is Nothing) Then
+                    Me._clientsTableAdapter.Connection = CType(revertConnections(Me._clientsTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._clientsTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter
